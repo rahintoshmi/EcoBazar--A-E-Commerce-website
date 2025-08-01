@@ -1,0 +1,721 @@
+/* Mobile styles */
+@media (max-width: 767px) {
+    .img-fluid {
+        max-width: 100%;
+    }
+
+    .bannerSlide h2 {
+        font-size: 42px;
+        margin-bottom: 7px;
+    }
+
+    .bannerSlide h3 {
+        font-size: 18px;
+    }
+
+    .bannerSlider .slider-dots {
+        display: none !important;
+    }
+
+    .bannerSlide a {
+        margin-top: 17px;
+    }
+
+    #banner .leftArrow, #banner .rightArrow {
+        display: none !important;
+    }
+
+    .btn {
+        padding: 12px 14px;
+        border-radius: 13px;
+    }
+
+    .bannerSlide a {
+        margin-top: 10px;
+
+    }
+
+    .col-lg-6.bannerCnt {
+        padding-bottom: 27px;
+    }
+
+    #description .descriptionsm {
+        padding: 24px 10px;
+        width: 93%;
+        margin: 20px auto;
+    }
+
+    #banner {
+        margin-top: 73px;
+    }
+
+    #mobileFooter {
+        padding: 10px 10px;
+    }
+
+    .searchMenu.active {
+        top: 11%;
+    }
+
+    .searchArea button {
+        width: 27px;
+        height: 27px;
+    }
+
+    .searchArea input {
+        font-size: 19px;
+    }
+
+    .card1 .cards, .card2 .cards, .card3 .cards, .card4 .cards {
+        padding-left: 41%;
+    }
+
+    .card1, .card2, .card3, .card4 {
+        padding: 17px 0px;
+    }
+
+
+    #featured {
+        padding: 30px 0;
+    }
+
+    .heading h2 {
+        font-size: 23px;
+    }
+
+    #productCategory .heading2 a {
+        font-size: 12px;
+    }
+
+    .heading a {
+        font-size: 12px;
+    }
+
+    #featured a .fa-arrow-right {
+        display: none;
+    }
+
+    .productCard .productCnt .cardBtn {
+        top: 58%;
+        right: 9px;
+    }
+
+    .productCard .productCnt p {
+        font-size: 12px;
+    }
+
+    .productCard .productCnt del {
+        font-size: 12px;
+    }
+
+    .productCard .productCnt a.productTitle {
+        font-size: 12px;
+    }
+
+    .productCard {
+        margin-bottom: 10px;
+        overflow-y: scroll;
+    }
+
+    #productCategory .heading2 h2 {
+        font-size: 22px;
+    }
+
+    #productCategory {
+        padding: 23px 9px;
+    }
+
+    #productCategory a .fa-arrow-right {
+        display: none;
+    }
+
+    #productCategory .heading2 {
+        margin-bottom: 16px;
+    }
+
+    #productCategory .categoriesCards a img {
+        margin-left: 37% !important;
+    }
+
+    #foodstore .foodstoreCnt h4 {
+        margin-bottom: 20px;
+        margin-top: 27px;
+        font-size: 25px;
+    }
+
+    #Shopping .card1 img, #Shopping .card2 img, #Shopping .card3 img, #Shopping .card4 img {
+        filter: grayscale(100%);
+        transition: 0.35s ease;
+        padding-left: 40%;
+    }
+
+    #foodstore {
+        padding: 24px 14px;
+    }
+
+    #foodstore .foodstoreCnt .p1, #foodstore .foodstoreCnt .p3 {
+        font-size: 16px;
+        margin-left: 9%;
+        margin-top: -6%;
+    }
+
+    .searchMenu .results a img {
+        height: 220px;
+    }
+
+
+
+    #featured .featuredProducts a img {
+        height: 220px;
+    }
+
+    #Counter {
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding: 50px 12px;
+    }
+
+    #Counter h5 {
+        font-size: 26px;
+        line-height: 120%;
+        color: var(--branding-success);
+    }
+
+    #sellerProduct .fa-arrow-right {
+        display: none;
+    }
+
+    #Counter p {
+        font-size: 15px;
+    }
+
+    #sellerProduct .heading h2 {
+        font-size: 26px;
+    }
+
+    #sellerProduct .heading a {
+        font-size: 12px;
+    }
+
+    #SmallCards .SmallCardImg img {
+        display: flex;
+        justify-content: center;
+        background-size: cover;
+        width: 100%;
+        margin-bottom: 26px;
+    }
+
+    #SmallCards .quickLinks {
+        left: 37%;
+        top: 50%;
+    }
+
+    #NewsCards .cards {
+        width: 100%;
+        margin-bottom: 29px;
+    }
+
+    #NewsCards {
+        padding: 1px 0;
+        background-size: cover;
+    }
+
+    #CustomerReviews h4 {
+        font-size: 23px;
+        margin-top: 13px;
+        margin-bottom: 32px;
+    }
+
+    #CustomerReviews .reviews2 {
+        margin-top: 12px;
+        margin-bottom: 12px;
+
+    }
+
+    #CustomerReviews {
+        background-size: cover;
+    }
+
+    #CustomerReviews .arrows {
+        display: none;
+    }
+
+    #mobilemenu .headsection {
+        gap: 7%;
+    }
+
+    #NewsCards .cardCnt .row .comment {
+        padding-right: 0px;
+    }
+
+    #NewsCards .cardCnt {
+        padding: 24px 24px 30px 24px;
+        background-color: var(--gray-scale-white);
+        box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.08);
+        max-width: 100%;
+    }
+
+    #Steps {
+        padding: 1px 0;
+    }
+
+    #Steps .Card1, #Steps .card2 {
+        margin-top: 18px;
+    }
+
+    #Steps .Card1 {
+        padding: 24px 30px 69px 20px;
+    }
+
+    #Steps .card2 input {
+        padding: 14px 14px;
+    }
+
+    #Steps .logo {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    #NewsCards .card {
+        width: 100%;
+        background-color: white;
+        border-radius: 6px;
+        overflow: hidden;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+    }
+
+    #NewsCards .cardImg img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+
+
+    #Steps .card2 {
+        padding: 15px 15px;
+    }
+
+    #DekstopFooter {
+        padding: 27px 30px 17px 35px;
+    }
+
+    #DekstopFooter .apps .row {
+        margin-bottom: 10px;
+    }
+
+    #DekstopFooter .EndFooter h2 {
+        margin-bottom: 10px;
+    }
+
+    #DekstopFooter .EndFooter {
+        padding: 10px 10px;
+    }
+
+    #productDetailsShop .items h2 {
+        font-size: 12px;
+    }
+
+    /* #ShoppingCart .table1 {} */
+
+    #topHeaderShop address {
+        font-size: 10px;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .address-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        /* Ensures text alignment is centered */
+    }
+
+    .address-container address {
+        margin: 0;
+        /* Removes default margin */
+    }
+
+    #subscriber button {
+        left: 54%;
+    }
+
+    #subscriber input {
+        width: 65%;
+    }
+
+    #DekstopFooterShop .EndFooter h2 {
+        margin-bottom: 21px;
+    }
+
+    #main .cartImage select {
+        font-size: 9px;
+        padding: 6px 10px;
+    }
+
+    #main .cartImage .part1 {
+        margin-top: 5px;
+    }
+
+    #main .cartImage p {
+        margin-top: 5px;
+    }
+
+    #main, #mobileSidemenuShop {
+        padding: 4px 0 6px;
+    }
+
+    #subscriber input {
+        padding: 14px 21px;
+    }
+
+    #subscriber button {
+        padding: 18px 41px;
+    }
+
+    #bottomHeaderShop2 .mainMenu li:hover>a, #bottomHeaderShop2 .mainMenu li a.active {
+        font-size: 13px;
+    }
+
+    #bottomHeaderShop2 .mainMenu li a {
+        font-size: 13px;
+    }
+
+    #ShoppingCart h3 {
+        font-size: 11px;
+        margin-top: 3%;
+        margin-left: 20%;
+    }
+
+    #ShoppingCart td {
+        padding: 13px 3px;
+    }
+
+
+    #ShoppingCart a {
+        font-size: 9px;
+        padding: 8px 12px;
+        margin: 11px;
+    }
+
+    #ShoppingCart .coupon {
+        margin-top: 24px;
+        margin-bottom: 24px;
+        width: 330px;
+        margin: 18%;
+    }
+
+    #ShoppingCart .coupon input {
+        padding: 14px 10px;
+        left: 27%;
+    }
+
+    #ShoppingCart .coupon button {
+        top: 18%;
+        right: 1%;
+        font-size: 11px;
+        padding: 11px 14px;
+    }
+
+    #topHeaderShop a {
+        font-size: 9px;
+        padding-left: 6px;
+    }
+
+    #topHeaderShop select {
+        font-size: 9px;
+        margin: 0px 0px;
+    }
+
+    #ShoppingCart .coupon h6 {
+        font-size: 19px;
+    }
+
+    #ShoppingCart .cartTable {
+        margin-left: 38px;
+    }
+
+    #ShoppingCart .cartTable span {
+        margin-left: 65%;
+    }
+
+    #ShoppingCart .table1 th {
+        padding: 16px 0px;
+        font-size: 11px;
+
+    }
+
+    #ShoppingCart .cartTable a {
+        margin-left: 7%;
+    }
+
+    #ShoppingCart .table1 {
+        margin: 18%;
+    }
+
+    #ShoppingCart .cartTable {
+        width: 330px;
+        margin: 10%;
+    }
+
+    #ShoppingCart .coupon h6 {
+        font-size: 13px;
+    }
+
+    #ShoppingCart .coupon input {
+        padding: 7px 1px;
+        left: 36%;
+    }
+
+    #ShoppingCart .counter {
+        padding: 7px;
+        width: 115px;
+        height: 42px;
+    }
+
+    #ShoppingCart .counter .decrementBtn {
+        top: 8%;
+    }
+
+    #ShoppingCart .counter .incrementBtn {
+        top: 8%;
+    }
+
+    #billingInformation input {
+        width: 100%;
+    }
+
+    #billingInformation select {
+        width: 100%;
+
+    }
+
+    #billingInformation p {
+        font-size: 10px;
+    }
+
+    #billingInformation .order label {
+        flex-direction: row !important;
+        align-items: flex-start;
+        display: inline-flex;
+        gap: 5px;
+        font-size: 10px;
+    }
+
+    #billingInformation .order input {
+        font-size: 12px;
+        margin-left: 2px;
+    }
+
+    #billingInformation .order {
+        padding: 17px;
+    }
+
+    .payment-methods {
+        display: block;
+        /* Flex container */
+        gap: 20px;
+        /* Space between items */
+        align-items: center;
+        /* Center vertically */
+        flex-wrap: wrap;
+        /* Wrap if space is small */
+    }
+
+    #productDetailsShop .productGallerySlider img {
+        max-width: 309px;
+    }
+
+    #productDetailsShop .rating p {
+        font-size: 13px;
+    }
+
+    #productDetailsShop .cartSection a {
+        padding: 16px 20px;
+        font-size: 14px;
+        text-align: center;
+        margin-left: 59px;
+    }
+
+
+
+    #productDetailsShop .counter {
+        padding: 6px;
+        width: 103px;
+        height: 43px;
+    }
+
+    #productDetailsShop h5 {
+        font-size: 25px;
+        margin-top: 10px;
+    }
+
+    #productDetailsShop .instock {
+        padding: 6px 25px;
+        font-size: 15px;
+        line-height: 150%;
+        display: inline-flex;
+        margin-bottom: 0px;
+    }
+
+    #productDetailsShop {
+        padding: 32px 0 0px;
+    }
+
+    .nav-tabs .nav-link.active {
+        font-size: 13px;
+    }
+
+    .nav-tabs .nav-link {
+        font-size: 13px;
+    }
+
+    .col-1 {
+        width: 18.333333%;
+    }
+
+    #description .descriptionsm .descriptionbg h5, #description .descriptionsm .descriptionbg p {
+        margin-left: 5px;
+    }
+
+    #description .Additional p {
+        margin-left: 14px;
+    }
+
+    #description .customerReview h5, #description .customerReview .rating {
+        margin-left: 20px;
+    }
+
+    #description .customerReview a {
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+
+    #wishlist th {
+        font-size: 12px;
+        padding: 0px 0px 15px;
+    }
+
+    #wishlist h3 {
+        font-size: 8px;
+        margin: 4px 0;
+    }
+
+    #wishlist h6 {
+        font-size: 13px;
+        margin: 27px 0;
+    }
+
+    #wishlist img {
+        text-align: center;
+        margin-top: 20px;
+        width: 49px;
+    }
+
+    #wishlist del {
+        font-size: 13px;
+        margin: 27px 0;
+    }
+
+    #wishlist .instock {
+        font-size: 8px;
+        padding: 10px 8px;
+        margin: 38px 0;
+    }
+
+    #wishlist .outstock {
+        font-size: 8px;
+        margin: 38px 0;
+        padding: 10px 8px;
+    }
+
+    #wishlist .cart {
+        font-size: 6px;
+        border-radius: 8px;
+        padding: 2px 27px;
+        margin: 5px 0;
+    }
+
+    #wishlist .cart1 {
+        font-size: 6px;
+        border-radius: 8px;
+        padding: 2px 27px;
+        margin: 5px 0;
+    }
+
+    #description .descriptionCnt .row {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    #wishlist .cross {
+        display: none;
+    }
+
+
+    #wishlist .quickLinks {
+        margin-top: 39px;
+        padding: 0px 24px 0px 10px;
+    }
+
+    #sellerProduct .productCard {
+        height: 240px;
+    }
+
+    #wishlist .share {
+        margin-left: 0px;
+        margin-top: 38px;
+    }
+
+    #main .productCard .productThumb img {
+        width: 100%;
+    }
+
+    #wishlist .quickLinks a {
+        margin-left: 88px;
+        padding: 10px;
+        margin-top: -8px;
+    }
+
+    #main .cartImage select, #mobileSidemenuShop .row select {
+        padding: 6px 14px;
+    }
+
+    #searchMenu button .fa-magnifying-glass {
+        width: 10px;
+        height: 10px;
+    }
+
+    #About .aboutFristRow .aboutLeft p {
+        font-size: 16px;
+        margin-top: -31px;
+        margin-bottom: 10px;
+    }
+
+    #About .organic-food-section {
+        background-size: cover;
+        background-attachment: fixed;
+    }
+
+    #About .organic-food-section p {
+        color: var(--gray-scale-gray-–-900);
+    }
+
+    #About .feature-card.d-flex.align-items-start.p-3.rounded-3 {
+        transform: translateY(-10px);
+    }
+
+    #contact .contact-section {
+        padding: 2rem 0;
+    }
+
+    #contact .info-card,
+    .contact-form {
+        margin-bottom: 2rem;
+    }
+}
