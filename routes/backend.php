@@ -13,5 +13,6 @@ Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('dashboa
 Route::prefix('category/')->name('category.')->controller(CategoryController::class)->group(function(){
     Route::get('/','index')->name('index');
     Route::post('/store','store')->name('store');
+    Route::get('/status-update/{id}','statusUpdate')->name('status');
    
 });

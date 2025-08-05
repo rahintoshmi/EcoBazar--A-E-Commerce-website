@@ -9,9 +9,11 @@
         <meta name="keywords" content="admin template, Rubick Admin Template, dashboard template, flat admin template, responsive admin template, web app">
         <meta name="author" content="LEFT4CODE">
         <title>Dashboard - Rubick - Bootstrap HTML Admin Template</title>
+        <link rel="stylesheet" href="https://cdn.datatables.net/2.3.2/css/dataTables.dataTables.css" />
         <!-- BEGIN: CSS Assets-->
         <link rel="stylesheet" href="{{asset('backend/css/app.css')}}"/>
         <!-- END: CSS Assets-->
+        @stack('css')
     </head>
     <!-- END: Head -->
     <body class="main">
@@ -249,10 +251,12 @@
             <!-- END: Content -->
         </div>
         <!-- BEGIN: JS Assets-->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBG7gNHAhDzgYmq4-EHvM4bqW1DNj2UCuk&libraries=places"></script>
         <script src="{{asset('backend/js/app.js')}}"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.datatables.net/2.3.2/js/dataTables.js"></script>
         <!-- END: JS Assets-->
         <script>
             const Toast = Swal.mixin({
@@ -278,6 +282,7 @@
 
         
         @endif
+        @stack('js')
         
     </body>
 </html>

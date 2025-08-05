@@ -20,3 +20,21 @@ function breadcrump(){
     return $path;
 
 }
+
+//for status toggle and active - inactive
+function generalStatus($status , $href ="#"){
+    if($status == 0){
+        return ' <a href="'.$href.'" class="btn btn-danger btn-sm">In-active</a> ';
+    }else if($status == 1){
+         return ' <a href="'.$href.'" class="btn btn-success btn-sm">Active</a> ';
+    }
+}
+
+//for placeholder image
+function getImage($src){
+    if($src){
+        return asset('storage/'.$src);
+    }else{
+        return asset('frontend/images/placeholder.webp');
+    }
+}
