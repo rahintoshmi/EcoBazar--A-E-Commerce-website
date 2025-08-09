@@ -35,9 +35,15 @@
                             <div class="side-menu__title"> Dashboard </div>
                         </a>
                     </li>
-                      <li>
+                    <li>
                         <a href="{{route('category.index')}}" class="side-menu  {{ getActiveLink('category.*')}}">
                             <div class="side-menu__icon"> <i data-feather="layers"></i> </div>
                             <div class="side-menu__title"> Category </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('products.index')}}" class="side-menu  {{ getActiveLink('products.*')}}">
+                            <div class="side-menu__icon"> <i data-feather="layers"></i> </div>
+                            <div class="side-menu__title"> Products </div>
                         </a>
                     </li>
