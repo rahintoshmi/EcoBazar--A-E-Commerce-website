@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ProductController extends Controller
 {
@@ -11,6 +12,7 @@ class ProductController extends Controller
         return view('backend.products.index');
     }
     function create(){
-        return view('backend.products.create');
+        $categories = Category::where('status',true)->latest()->select('id','title')->get();
+        return view('backend.products.create',compact('categories'));
     }
 }
