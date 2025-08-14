@@ -16,7 +16,7 @@ Route::prefix('category/')->name('category.')->controller(CategoryController::cl
     Route::post('/store','store')->name('store');
     Route::get('/status-update/{id}','statusUpdate')->name('status');
     Route::get('/edit/{id}','edit')->name('edit');
-    Route::post('/update/{id}', 'store')->name('update');
+    Route::post('/update/{id}', 'update')->name('update');
    
 });
 Route::prefix('products/')->name('products.')->controller(ProductController::class)->group(function(){

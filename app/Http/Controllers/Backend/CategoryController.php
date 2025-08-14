@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Backend;
 
-use Exception;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,64 +14,24 @@ class CategoryController extends Controller
         return view('backend.category.index',compact('categories'));
     }
 
-    public function store(Request $request, $id = null)
-    {
-    try {
-        // Validate request
-        $request->validate([
-            'title' => 'required|unique:categories,title,' . $id,
-            'icon'  => 'nullable|mimes:jpg,png,webp'
-        ]);
-
-        $path = null;
-        if ($request->hasFile('icon')) {
-            $fileName = str($request->title)->slug() . '-' . uniqid() . '.' . $request->icon->extension();
-            $path = $request->icon->storeAs('categories', $fileName, 'public');
-        }
-
-        // Dynamic success message
-        $msg = $id ? 'Category Updated Successfully!' : 'Category Added Successfully!';
-
-        // Create or Update category
-        Category::updateOrCreate(
-            ['id' => $id],
-            [
-                'title' => $request->title,
-                'slug'  => str($request->title)->slug(),
-                'icon'  => $path ?? ($id ? Category::find($id)->icon : null)
-            ]
-        );
-
-        return to_route('category.index')->with('msg', $this->getMsg($msg));
-    } catch (Exception $e) {
-        return to_route('category.index')->with('msg', $this->getErrorMsg());
-    }
-    }
-    function edit($id)
-    {
-        try {
-            $category = Category::findOrFail($id);
-            return view('backend.category.edit', compact('category'));
-        } catch (Exception $e) {
-        return redirect()->route('backend.category.index')->with('msg', [
-            "type" => "danger",
-            "res" => "Category Not Found"
-        ]);
-    }
-    }
-    private function getMsg($msg='success',$type='success'){
-        return [
-            'type' => $type,
-            'res' => $msg
-        ];
-    }
-    private function getErrorMsg(){
-        return [
-            'type' =>'error',
-            'res' => $msg ?? 'Something went wrong! Please try again.' 
-        ];
-    }
-
+    function store(Request $request){ 
+        $request->validate([ 'title' => 'required|unique:categories,title', 
+        'icon' => 'nullable|mimes:jpg,png,webp'
+     ]);
+      if($request->hasFile('icon')){
+         $fileName = str($request->title)->slug(). '-'.uniqid(). '.' .$request->icon->extension();
+          $path = $request->icon->storeAs('categories', $fileName ,'public'); 
+        } 
+        Category::create([ 
+            'title' => $request->title,
+             'slug' => str($request->title)->slug(), 
+             'icon' => $path ?? null ]); 
+             return back()->with('msg',[
+                
+                "type " => "success", 
+                "res" => "Category Added Successfully" 
+            ]);
+         }
     
     //status update
     function statusUpdate($id){
@@ -81,5 +40,36 @@ class CategoryController extends Controller
         $category->save();
         return back();
     }
+    function edit($id){
+
+        $category = Category::find($id);
+        return view('backend.category.edit', compact('category'));
+    }
+
+    function update(Request $request , $id){
+        $request->validate([
+            'title' => 'required|string|max:255|',
+            'icon' => 'required|mimes:jpg,png,webp',
+            'status' => 'required|boolean',
+        ]);
+        $category = Category::find($id);
+        $category->title = $request->title;
+        $category->status = $request->status;
+
+        if ($request->hasFile('icon')) {
+            $fileName = str($request->title)->slug() . '.' . $request->icon->extension();
+            $path =  $request->icon->storeAs('categories', $fileName, 'public');
+            $category->icon = $path;
+        }
+        
+        $category->save();
+        return redirect()->route('category.index')->with('msg',[
+            "type" => "success",
+            'res' => "Category Updated Successfully"
+        ]);
+    }
+        
+
+    
 
 }
