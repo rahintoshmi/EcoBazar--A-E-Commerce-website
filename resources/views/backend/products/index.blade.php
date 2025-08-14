@@ -26,6 +26,22 @@
         </tr>
     </thead>
     <tbody>
+        @foreach ($products as $key=>$product )
+        <tr>
+            <td>{{ ++$key }}</td>
+            <td>
+                <img width="40px" src="{{ asset('storage/'.$product->featured_img) }}" alt="">
+                {{ $product->title }}</td>
+            <td>{{ $category->category_id->title ?? 'No Category' }}</td>
+            <td>{{ $product->price }}</td>
+            <td>{{ $product->sku }}</td>
+            <td>{{ $product->stock }}</td>
+            <td>{{ $product->status }}</td>
+            <td>Edit</td>
+        </tr>
+
+            
+        @endforeach
         
      
     </tbody>

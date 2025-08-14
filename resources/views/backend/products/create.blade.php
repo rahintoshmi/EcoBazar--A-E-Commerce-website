@@ -9,13 +9,16 @@
     <div class="card">
         <div class="card-header">Add Products</div>
         <div class="card-body">
-            <form action="" method="POST">
+            <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row" style="justify-content: space-between">
                     <div class="col-lg-7">
                         <div class="form-group mb-3 my-2">
                             <label for="">Product Name <b class="text-theme-6">*</b></label>
                             <input type="text" name="title" class="form-control">
+                            @error('title')
+                               <span class="text-theme-6">{{ $message }}</span>   
+                            @enderror
                         </div>
                         {{-- SKU,price,selling --}}
                         <div class="row">
@@ -63,7 +66,7 @@
                     <div class="col-lg-4">
                         <div class="form-group">
                             <label for="">Category</label>
-                            <select name="" id="" class="form-control">
+                            <select name="category_id" id="" class="form-control">
                                 <option disabled selected>Select a Category</option>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->title }}</option>
@@ -72,11 +75,17 @@
                         </div>
                         <div class="form-group">
                             <label for="">Featured Image</label>
-                            <input type="file" class="filepond" id="">
+                            <input type="file" class="filepond" id="" name="featured_img">
+                             @error('featured_img')
+                               <span class="text-theme-6">{{ $message }}</span>   
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="">Gallery Images</label>
-                            <input type="file" class="filepondGallery" id="" multiple>
+                            <input type="file" name="gallImages[]" class="filepondGallery" id="" multiple>
+                             @error('gallImages.*')
+                               <span class="text-theme-6">{{ $message }}</span>   
+                            @enderror
                         </div>
                         <button class="btn btn-primary w-full">Add Product</button>
                     </div>
@@ -95,10 +104,13 @@
         <script src="https://unpkg.com/jquery-filepond/filepond.jquery.js"></script>
         <script>
             FilePond.registerPlugin(FilePondPluginImagePreview);
-            $('.filepond').filepond();
+            $('.filepond').filepond({
+                storeAsFile:true,
+            });
 
             $('.filepondGallery').filepond({
                 allowMultiple: true,
+                storeAsFile:true,
             });
         </script>
     @endpush
@@ -113,3 +125,7 @@
         </script>
     @endpush
 @endsection
+
+
+
+

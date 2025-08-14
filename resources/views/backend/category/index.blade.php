@@ -32,7 +32,8 @@
                 </div>
             </td>
             <td>{!! generalStatus($category->status, route('category.status',$category->id)) !!}</td>
-            <td>Edit</td>
+            <td><button class="btn btn-primary"><a href="{{ route('category.edit', $category->id) }}"
+                                                class="text-white text-decoration-none">Edit</a></button></td>
 
         @endforeach
      
