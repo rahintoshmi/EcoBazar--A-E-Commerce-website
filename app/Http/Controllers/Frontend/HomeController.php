@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Frontend\HomeController;
@@ -17,5 +19,16 @@ class HomeController extends Controller
     function about()
     {
         return view('frontend.about');
+    }
+    function shop($slug){
+        $category = Category::select('id','title')->where('slug',$slug)->first();
+        $products = Product::whereHas('category',function($q) use($slug){
+            $q->where('slug',$slug);
+        })->select('id','slug','title','price','selling_price','featured_img','category_id')->latest()->get();
+        return view('frontend.shop',compact('category','products'));
+    }
+    function singleProduct($slug){
+        $product = Product::where('slug',$slug)->first();
+        return view('frontend.product_details',compact('product'));
     }
 }

@@ -30,13 +30,23 @@
         <tr>
             <td>{{ ++$key }}</td>
             <td>
-                <img width="40px" src="{{ asset('storage/'.$product->featured_img) }}" alt="">
-                {{ $product->title }}</td>
-            <td>{{ $category->category_id->title ?? 'No Category' }}</td>
-            <td>{{ $product->price }}</td>
+                <div class="d-flex gap-2 align-items-center">
+                    <img width="50px" src="{{ getImage($product->featured_img) }}" alt="">
+                     {{ $product->title }}
+                </div>
+            </td>
+            <td>{{ $product->category->title ?? 'Unknown' }}</td>
+            <td>
+                @if($product->selling_price)
+               <b> {{ number_format($product->selling_price,2) }} </b>
+               <br><del>{{ number_format($product->price,2) }}</del>
+                @else
+                <b>{{ number_format($product->price,2)}}</b>  
+                @endif
+            </td>
             <td>{{ $product->sku }}</td>
-            <td>{{ $product->stock }}</td>
-            <td>{{ $product->status }}</td>
+            <td><button class="btn btn-sm btn-{{ $product->stock ? 'success' : 'danger'}}">{{ $product->stock ? 'Instock' : 'Out of Stock'}}</button></td>
+            <td>{!! generalStatus($product->status) !!}</td>
             <td>Edit</td>
         </tr>
 

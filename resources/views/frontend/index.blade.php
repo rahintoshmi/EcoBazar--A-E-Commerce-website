@@ -58,7 +58,7 @@
           <div class="row">
             <div class="col-lg-5">
               <ul class="mainMenu">
-                <li><a href="./index.html" class="active">Home</a></li>
+                <li><a href="{{ url('/') }}" class="active">Home</a></li>
                 <li>
                   <a href="./shop.html"
                     >Shop
@@ -66,11 +66,10 @@
                   </a>
 
                   <ul class="submenu">
-                     <li><a href="#"><i class="fa-solid fa-shirt"></i> Men's Fashion</a></li>
-                     <li><a href="#"><i class="fa-solid fa-person-dress"></i> Women's Fashion</a></li>
-                     <li><a href="#"><i class="fa-solid fa-laptop"></i> Electronics</a></li>
-                     <li><a href="#"><i class="fa-solid fa-child"></i> Kids</a></li>
-                     <li><a href="#"><i class="fa-solid fa-ellipsis"></i> Others</a></li>
+                     @foreach ($categories as $category )
+                    <li><a href="#"><img src="{{ getImage($category->icon) }} " alt="{{ $category->title }}" width="30px">{{ $category->title }}</a></li>
+                    @endforeach
+                     
                   </ul>
                 </li>
                 <li><a href="#">Blog</a></li>

@@ -148,9 +148,9 @@ rte-codebox {
 
 
 .rte-modern.rte-desktop.rte-toolbar-default {
-    min-width: 820px;
+    max-width: 100%;
+    overflow-x: scroll;
 }
-
 .rte-modern.rte-desktop.rte-toolbar-full {
     min-width: 820px;
 }

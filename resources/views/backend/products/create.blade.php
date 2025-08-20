@@ -12,7 +12,7 @@
             <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row" style="justify-content: space-between">
-                    <div class="col-lg-9">
+                    <div class="col-lg-8">
                         <div class="form-group mb-3 my-2">
                             <label for="">Product Name <b class="text-theme-6">*</b></label>
                             <input type="text" name="title" class="form-control">
@@ -63,7 +63,7 @@
 
 
                     </div>
-                    <div class="col-lg-2">
+                    <div class="col-lg-4">
                         <div class="form-group">
                             <label for="">Category</label>
                             <select name="category_id" id="" class="form-control">
@@ -125,7 +125,6 @@
         </script>
     @endpush
 @endsection
-
 
 
 

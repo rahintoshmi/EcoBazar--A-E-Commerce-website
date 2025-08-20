@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 class ProductController extends Controller
 {
     function index(){
-        $products = Product::orderBy('status','desc')->latest()->get();
+        $products = Product::with('category:id,title')->select('id','title','sku','price','selling_price','category_id','slug','status','stock','featured_img')->orderBy('status','desc')->latest()->get();
         return view('backend.products.index',compact('products'));
     }
     function create(){
@@ -20,9 +20,9 @@ class ProductController extends Controller
     function store(Request $request){
         $request->validate([
             'title' => 'required|unique:products,title',
-            'featured_img' => 'required|mimes:png,jpg',
+            'featured_img' => 'required|mimes:png,jpg,webp',
             'category_id' => 'required',
-            'gallImages.*' => 'nullable|mimes:png,jpg'
+            'gallImages.*' => 'nullable|mimes:png,jpg,webp'
 
         ],[
             'gallImages.*.mimes' => 'Only png and jpg images are allowed',

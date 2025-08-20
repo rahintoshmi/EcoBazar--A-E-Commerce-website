@@ -1,5 +1,5 @@
 @extends('layouts.frontendlayout')
-@section('title', '-Shop')
+@section('title', $category->title ?? 'Shop Page')
 @section('main')
 <!-- Background header -->
       <section id="backgroundHeader" >
@@ -9,7 +9,7 @@
               <a href="./index.html">
                 <i class="fa-solid fa-house"></i>
               </a>
-              <a href="#"><span>> Categories > Vegetables</span> </a>
+              <a href="#"><span>>{{ $category->title ?? 'Shop' }}</span> </a>
             </div>
             <div class="col-lg-6 d-lg-none d-flex justify-content-end align-items-center">
               <button
@@ -346,14 +346,15 @@
                 </div>
               </div>
               <div class="row part1">
+                @forelse ($products as $product )
                 <div class="col-lg-4">
                   <div class="productCard">
                     <div class="productThumb">
-                      <a href="#"
+                      <a href="{{ route('frontend.product.view',$product->slug) }}"
                         ><img
                           class="img-fluid"
-                          src="./images/shopPotato.png"
-                          alt=""
+                          src="{{ getImage($product->featured_img) }}"
+                          alt="{{ $product->title }}"
                       /></a>
 
                       <div class="quickLinks">
@@ -371,8 +372,12 @@
                     </div>
 
                     <div class="productCnt">
-                      <a href="#" class="productTitle">Big Potatos</a>
-                      <p>$14.99</p>
+                      <a href="{{ route('frontend.product.view',$product->slug) }}" class="productTitle">{{ $product->title }}</a>
+                      @if($product->selling_price)
+                      <p>{{ number_format($product->selling_price,2) }} <del>{{ number_format($product->price,2) }}</del></p>
+                        @else
+                        <p>{{ number_format($product->price,2) }}</p>
+                      @endif
                       <div class="rating">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
@@ -386,7 +391,11 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-4">
+                  @empty
+                  <p class="text-center">No Products Found!!</p>
+                @endforelse
+              
+                {{-- <div class="col-lg-4">
                   <div class="productCard">
                     <div class="productThumb">
                       <a href="./product_details.html"
@@ -963,7 +972,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> --}}
             </div>
           </div>
         </div>
