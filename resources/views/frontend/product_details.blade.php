@@ -29,58 +29,40 @@
                         <div class="row">
                             <div class="col-lg-2 order-2 order-lg-1">
                                 <div class="productThumbSlider">
-                                    <div class="slider">
-                                        <img class="img-fluid" src="./images/Product Image.png" alt="">
+                                    @if($product->featured_img)
+                                     <div class="slider">
+                                        <img class="img-fluid" src="{{ $product->featured_img }}" alt="{{ $product->title }}">
                                     </div>
+                                    @endif
+                                    @if(count(json_decode($product->gall_img) ?? [] ) > 0)
+                                    @foreach (json_decode($product->gall_img) as $gallImage)
                                     <div class="slider">
-                                        <img class="img-fluid" src="./images/Product Image2.png" alt="">
+                                        <img class="img-fluid" src="{{ getImage($gallImage) }}" alt="{{ $product->title }}">
                                     </div>
-                                    <div class="slider">
-                                        <img class="img-fluid" src="./images/Product Image3.png" alt="">
-                                    </div>
-                                    <div class="slider">
-                                        <img class="img-fluid" src="./images/Product Image4.png" alt="">
-                                    </div>
-                                    <div class="slider">
-                                        <img class="img-fluid" src="./images/Product Image.png" alt="">
-                                    </div>
-                                    <div class="slider">
-                                        <img class="img-fluid" src="./images/Product Image2.png" alt="">
-                                    </div>
-                                    <div class="slider">
-                                        <img class="img-fluid" src="./images/Product Image3.png" alt="">
-                                    </div>
-                                    <div class="slider">
-                                        <img class="img-fluid" src="./images/Product Image4.png" alt="">
-                                    </div>
+                                        
+                                    @endforeach
+                                        
+                                    @endif
+                                   
+                                    
+                                    
                                 </div>
                             </div>
                             <div class="col-lg-10 order-1 order-lg-2">
                                 <div class="productGallerySlider">
-                                    <div class="slider">
-                                        <img class="img-fluid" src="./images/Product Image.png" alt="">
+                                    @if($product->featured_img)
+                                     <div class="slider">
+                                        <img class="img-fluid" src="{{ $product->featured_img }}" alt="{{ $product->title }}">
                                     </div>
+                                    @endif
+                                    @if(count(json_decode($product->gall_img) ?? [] ) > 0)
+                                    @foreach (json_decode($product->gall_img) as $gallImage)
                                     <div class="slider">
-                                        <img class="img-fluid" src="./images/Product Image2.png" alt="">
+                                        <img class="img-fluid" src="{{ getImage($gallImage) }}" alt="{{ $product->title }}">
                                     </div>
-                                    <div class="slider">
-                                        <img class="img-fluid" src="./images/Product Image3.png" alt="">
-                                    </div>
-                                    <div class="slider">
-                                        <img class="img-fluid" src="./images/Product Image4.png" alt="">
-                                    </div>
-                                    <div class="slider">
-                                        <img class="img-fluid" src="./images/Product Image.png" alt="">
-                                    </div>
-                                    <div class="slider">
-                                        <img class="img-fluid" src="./images/Product Image2.png" alt="">
-                                    </div>
-                                    <div class="slider">
-                                        <img class="img-fluid" src="./images/Product Image3.png" alt="">
-                                    </div>
-                                    <div class="slider">
-                                        <img class="img-fluid" src="./images/Product Image4.png" alt="">
-                                    </div>
+                                    @endforeach    
+                                    @endif
+                                    
                                 </div>
                             </div>
                         </div>

@@ -47,7 +47,7 @@
             <td>{{ $product->sku }}</td>
             <td><button class="btn btn-sm btn-{{ $product->stock ? 'success' : 'danger'}}">{{ $product->stock ? 'Instock' : 'Out of Stock'}}</button></td>
             <td>{!! generalStatus($product->status) !!}</td>
-            <td>Edit</td>
+            <td><a href="{{ route('products.edit',$product->id) }}">Edit</a></td>
         </tr>
 
             

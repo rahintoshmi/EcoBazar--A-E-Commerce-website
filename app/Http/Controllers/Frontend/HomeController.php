@@ -20,12 +20,18 @@ class HomeController extends Controller
     {
         return view('frontend.about');
     }
-    function shop($slug){
-        $category = Category::select('id','title')->where('slug',$slug)->first();
+    function shop($slug = null){
+        if($slug){
+            $category = Category::select('id','title')->where('slug',$slug)->first();
         $products = Product::whereHas('category',function($q) use($slug){
             $q->where('slug',$slug);
-        })->select('id','slug','title','price','selling_price','featured_img','category_id')->latest()->get();
-        return view('frontend.shop',compact('category','products'));
+        })->select('id','slug','title','price','selling_price','featured_img','category_id')->latest()->paginate(15);  
+    }else{
+        $category = null;
+        $products = Product::select('id','slug','title','price','selling_price','featured_img','category_id')->latest()->paginate(15);
+    }
+    return view('frontend.shop',compact('category','products'));
+        
     }
     function singleProduct($slug){
         $product = Product::where('slug',$slug)->first();
