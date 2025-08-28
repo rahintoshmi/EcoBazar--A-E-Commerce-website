@@ -12,5 +12,6 @@ Route::name('frontend.')->group(function () {
     Route::get('/about', [HomeController::class, 'about'])->name('about');
     Route::get('/shop/{slug?}', [HomeController::class, 'shop'])->name('shop');//for category slug show in frontend shop submenu
     Route::get('/product/{slug}', [HomeController::class, 'singleProduct'])->name('product.view');//for single product view
+    Route::get('/search', [HomeController::class, 'searchProduct'])->name('product.search');//for search product
 });
 Auth::routes();

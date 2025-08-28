@@ -33,7 +33,8 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-4 cartdetails d-md-block d-none">
-              <button class="filter">
+          <form action="" method="GET" >
+                <button type="submit" class="filter">
                 Filter <i class="fa-solid fa-sliders"></i>
               </button>
               <div class="accordion" id="accordionExample1">
@@ -56,40 +57,25 @@
                     data-bs-parent="#accordionExample1"
                   >
                     <div class="accordion-body">
-                      <form action="">
-                        <label>
-                          <input type="radio" name="option" value="option1" />
-                          Fresh Fruit (25) <span> (134)</span>
-                        </label>
-                        <label>
-                          <input type="radio" name="option" value="option1" />
-                          Vegetables <span> (54)</span>
-                        </label>
-                        <label>
-                          <input type="radio" name="option" value="option1" />
-                          Cooking <span> (134)</span>
-                        </label>
-                        <label>
-                          <input type="radio" name="option" value="option1" />
-                          Snacks <span> (47)</span>
-                        </label>
-                        <label>
-                          <input type="radio" name="option" value="option1" />
-                          Beverages <span> (43)</span>
-                        </label>
-                        <label>
-                          <input type="radio" name="option" value="option1" />
-                          Beauty & Health <span> (38)</span>
-                        </label>
-                        <label>
-                          <input type="radio" name="option" value="option1" />
-                          Bread & Bakery <span> (15)</span>
-                        </label>
-                      </form>
+            
+                        <ul>
+                             @foreach ($productCategories as $productCategory)
+                    <li class="d-flex align-items-center {{str($productCategory->title)->slug()}}">
+                      <input type="radio" id="{{str($productCategory->title)->slug()}}" {{ $productCategory->id == request()->category ? 'checked' : '' }} name="category" value="{{$productCategory->id}}"  class="me-2">
+                      <label for="{{str($productCategory->title)->slug()}}">{{$productCategory->title}}({{$productCategory->products_count}})</label>
+                    </li>
+                    @endforeach
+                        </ul>
+                          
+                         
+                   
+                        
+                     
                     </div>
                   </div>
                 </div>
               </div>
+            
 
               <div class="accordion" id="accordionExample2">
                 <div class="accordion-item">
@@ -326,6 +312,7 @@
                 </div>
               </div>
             </div>
+            </form>
             <div class="col-lg-8 cartImage">
               <div class="row d-flex">
                 <div class="col-lg-8">
@@ -352,7 +339,7 @@
                     <div class="productThumb">
                       <a href="{{ route('frontend.product.view',$product->slug) }}"
                         ><img
-                          class="img-fluid"
+                          class="img-fluid" style="width: 100%; height:300px; object-fit: cover;" 
                           src="{{ getImage($product->featured_img) }}"
                           alt="{{ $product->title }}"
                       /></a>

@@ -66,10 +66,13 @@
                   </a>
 
                   <ul class="submenu">
-                     @foreach ($categories as $category )
-                    <li><a href="#"><img src="{{ getImage($category->icon) }} " alt="{{ $category->title }}" width="30px">{{ $category->title }}</a></li>
-                    @endforeach
-                     
+                                    @foreach ($categories as $category)
+                                        <li><a href="{{ route('frontend.shop', $category->slug) }}"><img
+                                                    src="{{ getImage($category->icon) }} "
+                                                    alt="{{ $category->title }}"
+                                                    width="30px">{{ $category->title }}</a></li>
+                                    @endforeach
+
                   </ul>
                 </li>
                 <li><a href="#">Blog</a></li>

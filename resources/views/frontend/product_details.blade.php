@@ -31,7 +31,7 @@
                                 <div class="productThumbSlider">
                                     @if($product->featured_img)
                                      <div class="slider">
-                                        <img class="img-fluid" src="{{ $product->featured_img }}" alt="{{ $product->title }}">
+                                        <img class="img-fluid" src="{{ getImage($product->featured_img) }}" alt="{{ $product->title }}">
                                     </div>
                                     @endif
                                     @if(count(json_decode($product->gall_img) ?? [] ) > 0)
@@ -52,7 +52,7 @@
                                 <div class="productGallerySlider">
                                     @if($product->featured_img)
                                      <div class="slider">
-                                        <img class="img-fluid" src="{{ $product->featured_img }}" alt="{{ $product->title }}">
+                                        <img class="img-fluid" src="{{ getImage($product->featured_img) }}" alt="{{ $product->title }}">
                                     </div>
                                     @endif
                                     @if(count(json_decode($product->gall_img) ?? [] ) > 0)

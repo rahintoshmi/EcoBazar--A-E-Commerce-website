@@ -20,21 +20,39 @@ class HomeController extends Controller
     {
         return view('frontend.about');
     }
-    function shop($slug = null){
+    function shop(Request $request , $slug = null){
+
+        $productCategories = Category::has('products')->where('status',true)->select('id','title')->withCount('products')->get();
         if($slug){
             $category = Category::select('id','title')->where('slug',$slug)->first();
-        $products = Product::whereHas('category',function($q) use($slug){
-            $q->where('slug',$slug);
-        })->select('id','slug','title','price','selling_price','featured_img','category_id')->latest()->paginate(15);  
-    }else{
-        $category = null;
-        $products = Product::select('id','slug','title','price','selling_price','featured_img','category_id')->latest()->paginate(15);
-    }
-    return view('frontend.shop',compact('category','products'));
+            $products = Product::whereHas('category',function($q) use($slug){
+                $q->where('slug',$slug);
+            })->select('id','slug','title','price','selling_price','featured_img','category_id')->latest()->paginate(15);  
+        }else{
+            $category = null;
+            $products = Product::query();
+            //search condition
+            if($request->search){
+                $products->whereLike('title',"%$request->search%");
+            }
+            //category filter condition
+            if($request->category){
+                $products->where('category_id', $request->category);
+            }
+            $products = $products->select('id','slug','title','price','selling_price','featured_img','category_id')->latest()->paginate(15);
+        }
+        return view('frontend.shop',compact('category','products','productCategories'));
         
     }
+
     function singleProduct($slug){
         $product = Product::where('slug',$slug)->first();
         return view('frontend.product_details',compact('product'));
+    }
+
+    function searchProduct(Request $request){
+        $search = $request->search;
+        $products = Product::whereLike('title',"%$search%")->select('id','title','slug')->take(10)->latest()->get();
+        return $products;
     }
 }

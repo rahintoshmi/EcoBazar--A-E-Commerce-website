@@ -83,16 +83,13 @@
                     <div class="col-lg-5 links d-flex justify-content-center align-items-center">
                         <form action="{{ route('frontend.shop') }}" method="GET">
                             @csrf
-                            <input type="text" placeholder="Search" />
+                            <input value="{{ request()->search ?? '' }}" type="text" placeholder="Search" />
                             <button>Search</button>
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </form>
                         <div class="position-absolute bg-white p-3 shadow" id="searchResult" style="display: none">
                           <ul>
-                            <li><a href="">Product Title</a></li>
-                            <li><a href="">Product Title</a></li>
-                            <li><a href="">Product Title</a></li>
-                            <li><a href="">Product Title</a></li>
+                            
                           </ul>
                         </div>
                     </div>
@@ -629,6 +626,29 @@
         $('#mainHeaderShop input').keyup(function() {
             let searchValue = $(this).val()
             if(searchValue.length >=3){
+
+                $.ajax({
+                    url: `{{ route('frontend.product.search') }}`,
+                    type: `GET`,
+                    data: 
+                    {
+                        search:searchValue
+                    },
+                    success: function (res) {
+                        let liArray = []
+                        res.forEach(item =>{
+                            let url = `{{ route('frontend.product.view','slug') }}`
+                            url = url.replace('slug',item.slug)
+                            let li = `<li><a href="${url}">${item.title}</a></li>`
+                            liArray.push(li)
+                        })
+                        $('#searchResult ul').html(liArray)
+                    },
+                    error: function (err) {
+                        alert('Something went wrong');
+                    }
+                    
+                })
               $('#searchResult').slideDown();
             }else{
               $('#searchResult').hide();

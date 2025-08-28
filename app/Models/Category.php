@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
@@ -15,6 +16,6 @@ class Category extends Model
     ];
 
     function products(){
-        return $this->hasMany(Products::class);
+        return $this->hasMany(Product::class);
     }
 }

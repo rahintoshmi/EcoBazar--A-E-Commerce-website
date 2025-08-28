@@ -67,9 +67,9 @@ class ProductController extends Controller
     function update(Request $request,$id){
         $request->validate([
             'title' => 'required|unique:products,title,'.$id,
-            'featured_img' => 'nullable|mimes:png,jpg,webp',
+            'featured_img' => 'nullable|mimes:png,jpg,webp,jpeg',
             'category_id' => 'required',
-            'gallImages.*' => 'nullable|mimes:png,jpg,webp'
+            'gallImages.*' => 'nullable|mimes:png,jpg,webp,jpeg'
 
         ],[
             'gallImages.*.mimes' => 'Only png and jpg images are allowed',
