@@ -39,6 +39,13 @@ class HomeController extends Controller
             if($request->category){
                 $products->where('category_id', $request->category);
             }
+            //min max price filter
+            if($request->min_price){
+                $products->whereRaw('COALESCE(selling_price,price) >= ?', [$request->min_price]);
+            }
+            if($request->max_price){
+                $products->whereRaw('COALESCE(selling_price,price) <= ?', [$request->max_price]);
+            }
             $products = $products->select('id','slug','title','price','selling_price','featured_img','category_id')->latest()->paginate(15);
         }
         return view('frontend.shop',compact('category','products','productCategories'));

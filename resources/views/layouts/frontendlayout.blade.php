@@ -65,7 +65,7 @@
                             <option>USD</option>
                             <option>BDT</option>
                         </select>
-                        <a href="#">Sign In /Sign Up</a>
+                        <a href="{{ route('customer.login') }}">Sign In /Sign Up</a>
                     </div>
                 </div>
             </div>

@@ -98,12 +98,21 @@
                   >
                     <div class="accordion-body">
                       <input
-                        type="range"
-                        id="brightness"
-                        name="brightness"
-                        min="50"
-                        max="1500"
-                      />
+  type="range"
+  id="min_price"
+  name="min_price"
+  min="2000"
+  max="999999"
+/>
+
+<input
+  type="range"
+  id="max_price"
+  name="max_price"
+  min="2000"
+  max="999999"
+/>
+
                       <h3>Price: <span>50 — 1,500</span></h3>
                     </div>
                   </div>

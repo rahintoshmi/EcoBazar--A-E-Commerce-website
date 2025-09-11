@@ -99,7 +99,7 @@
                   <a href="./shopping_cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
                 </li>
                 <li>
-                  <a href="#"><i class="fa-regular fa-user"></i></a>
+                  <a href="{{ route('customer.login') }}"><i class="fa-regular fa-user"></i></a>
                 </li>
               </ul>
             </div>
