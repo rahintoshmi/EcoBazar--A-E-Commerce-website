@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -40,5 +41,21 @@ class CustomerController extends Controller
             'password' => Hash::make($data['password']),
 
         ]);
+    }
+    function googleLogin(){
+        return Socialite::driver('google')->redirect();
+    }
+    function googleCallback(){
+        $user = Socialite::driver('google')->stateless()->user();
+        $customer =  Customer::updateOrCreate([
+            'email' => $user->email,
+        ],[
+            'name' => $user->name,
+            'email' => $user->email,
+            'password' => Hash::make(uniqid()),
+        ]);
+        Auth::guard('customer')->login($customer);
+        return to_route('customer.dashboard');
+
     }
 }

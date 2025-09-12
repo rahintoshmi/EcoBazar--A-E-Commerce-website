@@ -20,8 +20,12 @@ Route::get('/sign-up',[CustomerController::class,'showRegisterForm'])->name('cus
 Route::post('/sign-up',[CustomerController::class,'register'])->name('customer.register.confirm');
 Route::get('/sign-in',[CustomerController::class,'showLoginForm'])->name('customer.login');
 Route::post('/sign-in',[CustomerController::class,'login'])->name('customer.login.confirm');
+//google
+Route::get('/google/redirect', [CustomerController::class,'googleLogin'])->name('google.login');
+Route::get('/google/callback', [CustomerController::class ,'googleCallback'])->name("google.callback");
+
+
 Route::get('/my-profile',function(){
     echo "Welcome To our Dashboard " . auth('customer')->user()->name;
-
-});
+})->name("customer.dashboard")->middleware('customer');
 Auth::routes();
