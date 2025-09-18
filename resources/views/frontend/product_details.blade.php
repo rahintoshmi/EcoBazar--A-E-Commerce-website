@@ -39,13 +39,13 @@
                                     <div class="slider">
                                         <img class="img-fluid" src="{{ getImage($gallImage) }}" alt="{{ $product->title }}">
                                     </div>
-                                        
+
                                     @endforeach
-                                        
+
                                     @endif
-                                   
-                                    
-                                    
+
+
+
                                 </div>
                             </div>
                             <div class="col-lg-10 order-1 order-lg-2">
@@ -60,9 +60,9 @@
                                     <div class="slider">
                                         <img class="img-fluid" src="{{ getImage($gallImage) }}" alt="{{ $product->title }}">
                                     </div>
-                                    @endforeach    
+                                    @endforeach
                                     @endif
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -141,23 +141,29 @@
                                 </div>
                             </div>
                             <p>{!! $product->short_details !!} </p>
-                            <div class="row d-flex">
+                            @if($product->stock)
+                            <div class="row">
+                                <form action="{{ route('frontend.addCart',$product->id) }}" class="d-flex gap-5">
                                 <div class="col-2">
                                     <div class="counter">
-                                        <button class="decrementBtn">-</button>
-                                        <input class="quality" type="number" value="1" />
-                                        <button class="incrementBtn">+</button>
+                                        <button type="button" class="decrementBtn">-</button>
+                                        <input class="quality" name="quantity" type="number" value="1" />
+                                        <button type="button" class="incrementBtn">+</button>
                                     </div>
                                 </div>
                                 <div class="col-8 d-flex cartSection">
-                                    <a href="./shopping_cart.html">
+                                    <button type="submit" class="btn btn-primary">
                                         Add to Cart <i class="fa-solid fa-bag-shopping"></i>
-                                    </a>
+                                    </button>
                                 </div>
                                 <div class="col-2 d-flex cartSection2">
                                     <a href="./wishlist.html"><i class="fa-regular fa-heart"></i></a>
                                 </div>
+                                </form>
+
+
                             </div>
+                             @endif
                             <h3 class="details">Category: <span class="details2">Vegetables</span></h3>
                             <div class="row d-flex">
                                 <div class="col-2">
@@ -197,11 +203,11 @@
                     <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
                         tabindex="0">
                         <div class="row">
-                           
+
                                 <p>{!! $product->long_details !!}</P>
-                             
-                              
-{{--                            
+
+
+{{--
                             <div class="col-lg-6 descriptionImg">
                                 <img src="./images/descriptionImg.png" class="img-fluid" alt="">
                                 <div class="row d-flex">

@@ -89,7 +89,7 @@
                         </form>
                         <div class="position-absolute bg-white p-3 shadow" id="searchResult" style="display: none">
                           <ul>
-                            
+
                           </ul>
                         </div>
                     </div>
@@ -101,10 +101,10 @@
                             <li>
                                 <a href="./shopping_cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
                             </li>
-                            <a href="#" class="cartno"><span>3</span></a>
+                            <a href="#" class="cartno"><span>{{ $cart['totalItem'] }}</span></a>
                             <div class="cartlines">
                                 <p>Shopping cart:</p>
-                                <h2>$57.00</h2>
+                                <h2>{{ number_format($cart['totalAmount'],2) }}৳</h2>
                             </div>
                         </ul>
                     </div>
@@ -630,7 +630,7 @@
                 $.ajax({
                     url: `{{ route('frontend.product.search') }}`,
                     type: `GET`,
-                    data: 
+                    data:
                     {
                         search:searchValue
                     },
@@ -647,7 +647,7 @@
                     error: function (err) {
                         alert('Something went wrong');
                     }
-                    
+
                 })
               $('#searchResult').slideDown();
             }else{

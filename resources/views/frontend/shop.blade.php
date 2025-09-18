@@ -57,7 +57,7 @@
                     data-bs-parent="#accordionExample1"
                   >
                     <div class="accordion-body">
-            
+
                         <ul>
                              @foreach ($productCategories as $productCategory)
                     <li class="d-flex align-items-center {{str($productCategory->title)->slug()}}">
@@ -66,16 +66,16 @@
                     </li>
                     @endforeach
                         </ul>
-                          
-                         
-                   
-                        
-                     
+
+
+
+
+
                     </div>
                   </div>
                 </div>
               </div>
-            
+
 
               <div class="accordion" id="accordionExample2">
                 <div class="accordion-item">
@@ -348,7 +348,7 @@
                     <div class="productThumb">
                       <a href="{{ route('frontend.product.view',$product->slug) }}"
                         ><img
-                          class="img-fluid" style="width: 100%; height:300px; object-fit: cover;" 
+                          class="img-fluid" style="width: 100%; height:300px; object-fit: cover;"
                           src="{{ getImage($product->featured_img) }}"
                           alt="{{ $product->title }}"
                       /></a>
@@ -381,16 +381,18 @@
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star empty"></i>
                       </div>
-                      <a href="./shopping_cart.html" class="cardBtn"
+                      @if($product->stock)
+                      <a href="{{ route('frontend.addCart',$product->id) }}" class="cardBtn"
                         ><i class="fa-solid fa-bag-shopping"></i
                       ></a>
+                       @endif
                     </div>
                   </div>
                 </div>
                   @empty
                   <p class="text-center">No Products Found!!</p>
                 @endforelse
-              
+
                 {{-- <div class="col-lg-4">
                   <div class="productCard">
                     <div class="productThumb">
@@ -399,7 +401,7 @@
                           class="img-fluid"
                           src="./images/shopLettuce.png"
                           alt=""
-                          
+
                       /></a>
 
                       <div class="quickLinks">
@@ -443,7 +445,7 @@
                           class="img-fluid"
                           src="./images/shopCorn.png"
                           alt=""
-                          
+
                       /></a>
 
                       <div class="quickLinks">
@@ -485,7 +487,7 @@
                         ><img
                           class="img-fluid"
                           src="./images/shopEggplant.png"
-                          alt="" 
+                          alt=""
                       /></a>
 
                       <div class="quickLinks">
@@ -526,7 +528,7 @@
                           class="img-fluid"
                           src="./images/shopCoauliflower.png"
                           alt=""
-                         
+
                       /></a>
 
                       <div class="quickLinks">
@@ -567,7 +569,7 @@
                           class="img-fluid"
                           src="./images/shopApple.png"
                           alt=""
-                          
+
                       /></a>
 
                       <div class="quickLinks">
@@ -610,7 +612,7 @@
                           class="img-fluid"
                           src="./images/shopCapsicum.png"
                           alt=""
-                          
+
                       /></a>
 
                       <div class="quickLinks">
@@ -690,7 +692,7 @@
                       <a href="#"
                         ><img
                           class="img-fluid"
-                          src="./images/shopCucumber.png" 
+                          src="./images/shopCucumber.png"
                           alt=""
                       /></a>
 
@@ -732,7 +734,7 @@
                       <a href="#"
                         ><img
                           class="img-fluid"
-                          src="./images/shopGreenLettuce.png" 
+                          src="./images/shopGreenLettuce.png"
                           alt=""
                       /></a>
 
@@ -772,7 +774,7 @@
                       <a href="#"
                         ><img
                           class="img-fluid"
-                          src="./images/shopOkra.png" 
+                          src="./images/shopOkra.png"
                           alt=""
                       /></a>
 
@@ -812,7 +814,7 @@
                       <a href="#"
                         ><img
                           class="img-fluid"
-                          src="./images/ShopRedBigCapsicum.png" 
+                          src="./images/ShopRedBigCapsicum.png"
                           alt=""
                       /></a>
 
@@ -853,7 +855,7 @@
                     <div class="productThumb">
                       <a href="#"
                         ><img
-                          class="img-fluid" 
+                          class="img-fluid"
                           src="./images/shopRedChili.png"
                           alt=""
                       /></a>
@@ -894,7 +896,7 @@
                       <a href="#"
                         ><img
                           class="img-fluid"
-                          src="./images/shopRed.png" 
+                          src="./images/shopRed.png"
                           alt=""
                       /></a>
 
@@ -934,7 +936,7 @@
                       <a href="#"
                         ><img
                           class="img-fluid"
-                          src="./images/ShopBigMango.png" 
+                          src="./images/ShopBigMango.png"
                           alt=""
                       /></a>
 
@@ -979,4 +981,3 @@
 
 
 @endsection
-    

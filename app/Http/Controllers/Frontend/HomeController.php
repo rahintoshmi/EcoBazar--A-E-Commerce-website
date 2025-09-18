@@ -27,7 +27,7 @@ class HomeController extends Controller
             $category = Category::select('id','title')->where('slug',$slug)->first();
             $products = Product::whereHas('category',function($q) use($slug){
                 $q->where('slug',$slug);
-            })->select('id','slug','title','price','selling_price','featured_img','category_id')->latest()->paginate(15);  
+            })->select('id','slug','title','price','selling_price','featured_img','category_id','stock')->latest()->paginate(15);
         }else{
             $category = null;
             $products = Product::query();
@@ -46,10 +46,10 @@ class HomeController extends Controller
             if($request->max_price){
                 $products->whereRaw('COALESCE(selling_price,price) <= ?', [$request->max_price]);
             }
-            $products = $products->select('id','slug','title','price','selling_price','featured_img','category_id')->latest()->paginate(15);
+            $products = $products->select('id','slug','title','price','selling_price','featured_img','category_id','stock')->latest()->paginate(15);
         }
         return view('frontend.shop',compact('category','products','productCategories'));
-        
+
     }
 
     function singleProduct($slug){
