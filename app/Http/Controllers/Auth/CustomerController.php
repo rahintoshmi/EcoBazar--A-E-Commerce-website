@@ -21,7 +21,6 @@ class CustomerController extends Controller
         RegistersUsers,
         ResetsPasswords,
         SendsPasswordResetEmails {
-            // Pick credentials() from AuthenticatesUsers
             AuthenticatesUsers::credentials insteadof SendsPasswordResetEmails, ResetsPasswords;
             SendsPasswordResetEmails::credentials as passwordResetCredentials;
             ResetsPasswords::credentials as resetPasswordCredentials;
@@ -120,9 +119,6 @@ class CustomerController extends Controller
     {
         $customer->password = bcrypt($password);
         $customer->save();
-
-        dd("Password updated for {$customer->email}");
-
         $this->guard()->login($customer);
     }
     function customerLogout(){
@@ -132,4 +128,14 @@ class CustomerController extends Controller
     function myDashboard(){
         return view('frontend.customer.dashboard');
     }
+    protected function credentials(Request $request)
+{
+    return $request->only(
+        'email',
+        'password',
+        'password_confirmation',
+        'token'
+    );
+}
+
 }
